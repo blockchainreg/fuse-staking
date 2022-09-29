@@ -1,13 +1,18 @@
-import React, { useState, useRef } from 'react'
-import classNames from 'classnames'
-import get from 'lodash/get'
-import { useSelector } from 'react-redux'
-import useOutsideClick from '@/hooks/useOutsideClick.jsx'
-import { addressShortener } from '@/utils/format'
-import walletIcon from '@/assets/images/wallet.svg'
-import fuseLogoWhite from '@/assets/images/FuseLogo.png'
-import explorerIcon from '@/assets/images/explorer.svg'
-import stakingIcon from '@/assets/images/staking-icon.svg'
+import React, {
+  useRef,
+  useState,
+} from 'react';
+
+import classNames from 'classnames';
+import get from 'lodash/get';
+import { useSelector } from 'react-redux';
+
+import explorerIcon from '@/assets/images/explorer.svg';
+import fuseLogoWhite from '@/assets/images/FuseLogo.png';
+import stakingIcon from '@/assets/images/staking-icon.svg';
+import walletIcon from '@/assets/images/wallet.svg';
+import useOutsideClick from '@/hooks/useOutsideClick.jsx';
+import { addressShortener } from '@/utils/format';
 
 const NavBar = ({ handleConnect, handleLogout }) => {
   const [isOpen, setMenuOpen] = useState(false)
@@ -53,7 +58,7 @@ const NavBar = ({ handleConnect, handleLogout }) => {
               rel='noreferrer noopener'
               className={classNames('header__link', { 'header__link--dark': isOpen })}
               target='_blank'
-              href='https://explorer.fuse.io/'
+              href='https://dynoscan.io/'
             >
               <img src={explorerIcon} /> Explorer
             </a>

@@ -12,7 +12,7 @@ const networks = {
       decimals: 18
     },
     rpc: 'https://rpc.fuse.io',
-    explorer: 'https://explorer.fuse.io'
+    explorer: 'https://dynoscan.io'
   }
 }
 
