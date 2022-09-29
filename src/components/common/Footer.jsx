@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
-import footerLogo from '@/assets/images/footer-logo.svg'
-import twitterIcon from '@/assets/images/twitter_white.svg'
-import twitterIconHover from '@/assets/images/twitter_footer_hover.svg'
-import githubIcon from '@/assets/images/github_white.svg'
-import githubIconHover from '@/assets/images/git_footer_hover.svg'
-import mediumIcon from '@/assets/images/medium_white.svg'
-import mediumIconHover from '@/assets/images/med_footer_hover.svg'
-import discordIcon from '@/assets/images/discord.svg'
-import discordIconHover from '@/assets/images/discord_footer_hover.svg'
-import telegramIcon from '@/assets/images/tele.svg'
-import telegramIconHover from '@/assets/images/telegram_footer_hover.svg'
+import React, { useState } from 'react';
+
+import discordIcon from '@/assets/images/discord.svg';
+import discordIconHover from '@/assets/images/discord_footer_hover.svg';
+import footerLogo from '@/assets/images/footer-logo.svg';
+import githubIconHover from '@/assets/images/git_footer_hover.svg';
+import githubIcon from '@/assets/images/github_white.svg';
+import mediumIconHover from '@/assets/images/med_footer_hover.svg';
+import mediumIcon from '@/assets/images/medium_white.svg';
+import telegramIcon from '@/assets/images/tele.svg';
+import telegramIconHover from '@/assets/images/telegram_footer_hover.svg';
+import twitterIconHover from '@/assets/images/twitter_footer_hover.svg';
+import twitterIcon from '@/assets/images/twitter_white.svg';
 
 const HoverIcon = ({ Icon, Hover, link }) => {
   const [isHover, setHover] = useState(false)
@@ -40,7 +41,7 @@ const Footer = () => {
         </div>
         <div className='footer__icons grid-x align-center'>
           <HoverIcon
-            link='https://twitter.com/fuse_network'
+            link='https://twitter.com/dyno_chain'
             Icon={() => (
               <div className='image' style={{ backgroundImage: `url(${twitterIcon})` }} />
             )}
@@ -49,7 +50,7 @@ const Footer = () => {
             )}
           />
           <HoverIcon
-            link='https://github.com/fuseio'
+            link='https://github.com/dyno-protocol'
             Icon={() => (
               <div className='image' style={{ backgroundImage: `url(${githubIcon})` }} />
             )}
@@ -58,7 +59,7 @@ const Footer = () => {
             )}
           />
           <HoverIcon
-            link='https://medium.com/fusenet'
+            link='https://dynochain.medium.com'
             Icon={() => (
               <div className='image' style={{ backgroundImage: `url(${mediumIcon})` }} />
             )}
@@ -67,7 +68,7 @@ const Footer = () => {
             )}
           />
           <HoverIcon
-            link='https://discordapp.com/invite/jpPMeSZ'
+            link='https://discord.gg/WC5thfjRDt'
             Icon={() => (
               <div className='image' style={{ backgroundImage: `url(${discordIcon})` }} />
             )}
@@ -76,7 +77,7 @@ const Footer = () => {
             )}
           />
           <HoverIcon
-            link='https://t.me/fuseio'
+            link='https://t.me/dynochain'
             Icon={() => (
               <div className='image' style={{ backgroundImage: `url(${telegramIcon})` }} />
             )}
