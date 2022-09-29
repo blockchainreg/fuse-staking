@@ -1,15 +1,25 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { Field, useFormikContext } from 'formik'
-import classNames from 'classnames'
-import GrayContainer from '@/components/common/GrayContainer.jsx'
-import PercentageSelector from './PercentageSelector'
-import get from 'lodash/get'
-import capitalize from 'lodash/capitalize'
-import { toWei, formatWei, formatWeiToNumber } from '@/utils/format'
-import walletIcon from '@/assets/images/wallet.svg'
-import FuseLoader from '@/assets/images/loader-fuse.gif'
-import BigNumber from 'bignumber.js'
+import React from 'react';
+
+import BigNumber from 'bignumber.js';
+import classNames from 'classnames';
+import {
+  Field,
+  useFormikContext,
+} from 'formik';
+import capitalize from 'lodash/capitalize';
+import get from 'lodash/get';
+import { useSelector } from 'react-redux';
+
+import FuseLoader from '@/assets/images/loader-fuse.gif';
+import walletIcon from '@/assets/images/wallet.svg';
+import GrayContainer from '@/components/common/GrayContainer.jsx';
+import {
+  formatWei,
+  formatWeiToNumber,
+  toWei,
+} from '@/utils/format';
+
+import PercentageSelector from './PercentageSelector';
 
 const BLOCKS_IN_YEAR = 6307200
 
@@ -54,7 +64,7 @@ export default ({ handleConnect }) => {
   return (
     <div className='form'>
       <div className='input__wrapper'>
-        <div className={classNames('balance', { 'balance--disabled': !accountAddress || !validator })}>Balance - <span>{formatWei(balanceToShow)} FUSE</span></div>
+        <div className={classNames('balance', { 'balance--disabled': !accountAddress || !validator })}>Balance - <span>{formatWei(balanceToShow)} DND</span></div>
         <div className='input'>
           <Field name='amount'>
             {({
@@ -68,7 +78,7 @@ export default ({ handleConnect }) => {
               />
             )}
           </Field>
-          <span className='symbol'>FUSE</span>
+          <span className='symbol'>DND</span>
         </div>
       </div>
       <PercentageSelector balance={balanceToShow} />
@@ -76,7 +86,7 @@ export default ({ handleConnect }) => {
         submitType === 'stake' && (
           <GrayContainer
             modifier={validator && accountAddress ? 'gray_container--fix-width' : 'gray_container--fix-width gray_container--disabled'}
-            symbol='FUSE'
+            symbol='DND'
             estimatedAPR={isNaN(estimatedAPR) ? 0 : (formatWeiToNumber(estimatedAPR) * 100).toFixed(1)}
             title='Project rewards (1Y)'
             end={isNaN(rewardPerYear) ? 0 : formatWeiToNumber(rewardPerYear)}

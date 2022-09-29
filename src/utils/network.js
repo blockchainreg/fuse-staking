@@ -1,17 +1,17 @@
 export const networkIds = {
-  FUSE: 122
+  DND: 7363
 }
 
 const networks = {
-  [networkIds.FUSE]: {
-    chainId: '0x7a',
-    chainName: 'Fuse Network',
+  [networkIds.DND]: {
+    chainId: '7363',
+    chainName: 'DynoChain',
     nativeCurrency: {
-      name: 'Fuse',
-      symbol: 'FUSE',
+      name: 'Dyno',
+      symbol: 'DND',
       decimals: 18
     },
-    rpc: 'https://rpc.fuse.io',
+    rpc: 'https://rpc.dynochain.io',
     explorer: 'https://dynoscan.io'
   }
 }

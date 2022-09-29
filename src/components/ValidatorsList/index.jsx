@@ -1,19 +1,37 @@
-import React, { useMemo } from 'react'
-import { isMobile } from 'react-device-detect'
-import { useSelector, useDispatch } from 'react-redux'
-import { Formik, Form, useFormikContext } from 'formik'
-import { object, string, boolean } from 'yup'
-import map from 'lodash/map'
-import filter from 'lodash/filter'
-import sortBy from 'lodash/sortBy'
-import Table from '@/components/common/Table'
-import TableHeader from '@/components/common/Table/TableHeader'
-import TableLoader from '@/components/common/Table/TableLoader'
-import { selectValidator } from '@/actions/consensus'
-import { formatWei, formatWeiToNumber, addressShortener } from '@/utils/format'
-import { addDefaultSrc } from '@/utils/images'
-import WebsiteCell from './cells/website'
-import StakeAmountCell from './cells/stakeAmount'
+import React, { useMemo } from 'react';
+
+import {
+  Form,
+  Formik,
+  useFormikContext,
+} from 'formik';
+import filter from 'lodash/filter';
+import map from 'lodash/map';
+import sortBy from 'lodash/sortBy';
+import { isMobile } from 'react-device-detect';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
+import {
+  boolean,
+  object,
+  string,
+} from 'yup';
+
+import { selectValidator } from '@/actions/consensus';
+import Table from '@/components/common/Table';
+import TableHeader from '@/components/common/Table/TableHeader';
+import TableLoader from '@/components/common/Table/TableLoader';
+import {
+  addressShortener,
+  formatWei,
+  formatWeiToNumber,
+} from '@/utils/format';
+import { addDefaultSrc } from '@/utils/images';
+
+import StakeAmountCell from './cells/stakeAmount';
+import WebsiteCell from './cells/website';
 
 const Shape = object().shape({
   validator: string(),
@@ -77,7 +95,7 @@ const ValidatorsList = () => {
         {
           accessor: 'stakeAmount',
           Cell: StakeAmountCell,
-          Header: <TableHeader header='Staked amount' tooltipText='The amount of FUSE staked to each validator.' id='staked' />
+          Header: <TableHeader header='Staked amount' tooltipText='The amount of DND staked to each validator.' id='staked' />
         },
         {
           accessor: 'fee',
@@ -96,7 +114,7 @@ const ValidatorsList = () => {
           {
             accessor: 'stakeAmount',
             Cell: StakeAmountCell,
-            Header: <TableHeader header='Staked amount' tooltipText='The amount of FUSE staked to each validator.' id='staked' />
+            Header: <TableHeader header='Staked amount' tooltipText='The amount of DND staked to each validator.' id='staked' />
           },
           {
             accessor: 'fee',

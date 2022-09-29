@@ -1,31 +1,43 @@
-import ReactGA from 'react-ga4'
-import React, { useState, useEffect, useMemo } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import get from 'lodash/get'
-import ReactModal from 'react-modal'
-import { useModal } from 'react-modal-hook'
-import ValidatorsList from '@/components/ValidatorsList'
-import Tabs from '@/components/Tabs'
-import InfoBox from '@/components/common/InfoBox'
-import LargeInfoBox from '@/components/common/LargeInfoBox'
-import briefcaseIcon from '@/assets/images/briefcase-check.svg'
-import metricIcon from '@/assets/images/metric.svg'
-import blockCubeIcon from '@/assets/images/block_cude.svg'
-import useInterval from '@/hooks/useInterval'
-import { formatWeiToNumber, toWei } from '@/utils/format'
-import BigNumber from 'bignumber.js'
-import { balanceOfNative } from '@/actions/accounts'
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+
+import BigNumber from 'bignumber.js';
+import get from 'lodash/get';
+import ReactGA from 'react-ga4';
+import ReactModal from 'react-modal';
+import { useModal } from 'react-modal-hook';
 import {
-  withdraw,
+  useDispatch,
+  useSelector,
+} from 'react-redux';
+
+import { balanceOfNative } from '@/actions/accounts';
+import {
   delegate,
-  getValidators,
+  getBlockNumber,
+  getBlockRewardAmount,
   getOldValidators,
   getTotalStakeAmount,
-  getBlockRewardAmount,
-  getBlockNumber
-} from '@/actions/consensus'
-import { switchNetwork } from '@/actions/network'
-import { networkIds } from '@/utils/network'
+  getValidators,
+  withdraw,
+} from '@/actions/consensus';
+import { switchNetwork } from '@/actions/network';
+import blockCubeIcon from '@/assets/images/block_cude.svg';
+import briefcaseIcon from '@/assets/images/briefcase-check.svg';
+import metricIcon from '@/assets/images/metric.svg';
+import InfoBox from '@/components/common/InfoBox';
+import LargeInfoBox from '@/components/common/LargeInfoBox';
+import Tabs from '@/components/Tabs';
+import ValidatorsList from '@/components/ValidatorsList';
+import useInterval from '@/hooks/useInterval';
+import {
+  formatWeiToNumber,
+  toWei,
+} from '@/utils/format';
+import { networkIds } from '@/utils/network';
 
 export default ({ handleConnect }) => {
   const dispatch = useDispatch()
@@ -53,15 +65,15 @@ export default ({ handleConnect }) => {
           Unsupported network
         </div>
         <div className='text'>
-          Click on the button below to switch to fuse
+          Click on the button below to switch to DynoChain
         </div>
         <button
           className='close'
           onClick={() => {
-            dispatch(switchNetwork(networkIds.FUSE))
+            dispatch(switchNetwork(networkIds.DND))
           }}
         >
-          Switch to Fuse
+          Switch to DynoChain
         </button>
       </div>
     </ReactModal>
@@ -124,7 +136,7 @@ export default ({ handleConnect }) => {
           />
           <InfoBox
             name='deposits'
-            symbol='FUSE'
+            symbol='DND'
             title='Balance'
             end={formatWeiToNumber(balance)}
             decimals={2}
@@ -134,7 +146,7 @@ export default ({ handleConnect }) => {
           />
           <LargeInfoBox
             name='rewards'
-            symbol='FUSE'
+            symbol='DND'
             end={isNaN(formatWeiToNumber(myTotal)) ? 0 : formatWeiToNumber(myTotal)}
             secondEnd={isNaN(formatWeiToNumber(totalStakeAmount)) ? 0 : formatWeiToNumber(totalStakeAmount)}
             title='Your total staked'
